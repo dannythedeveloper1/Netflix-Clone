@@ -1,0 +1,29 @@
+.header_outer_container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(20, 20, 20);
+    height: 10vh;
+    color: white;
+    /* font-family: Netflix Sans,Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif; */
+    /* background-color: red; */
+}
+.header_container{
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    /* background-color: yellow; */
+}
+.header_left ul{
+    width: 140%;
+    display: flex;
+    justify-content: space-between;
+    list-style: none;
+    /* background-color: lightblue; */
+}
+.header_right ul{
+    width: 150%;
+    display: flex;
+    list-style: none;
+    background-color: lightgreen;
+}
