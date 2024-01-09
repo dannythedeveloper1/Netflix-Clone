@@ -1,10 +1,12 @@
 import './App.css';
 import Header from './components/header/Header';
+import Row from './components/rows/Row';
 
 function App() {
   return (
     <div className="App">
       <Header/>
+      <Row />
     </div>
   );
 }

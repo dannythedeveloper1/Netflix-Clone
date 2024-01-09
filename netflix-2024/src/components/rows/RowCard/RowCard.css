@@ -1,0 +1,49 @@
+.row-container {
+  position: relative;
+  margin: 1rem 0 0.5rem 1.5rem;
+  padding: 0 1rem;
+  /* background: #faf201; */
+}
+.row-container h2 {
+  color: var(--primary-color);
+  font-family: var(--font-base);
+  font-size: 2rem;
+}
+.row-poster {
+  position: relative;
+}
+.row-poster .card {
+  width: 15rem !important;
+  height: auto !important;
+  transition: transform 0.4s ease-in-out;
+}
+.row-poster .card:hover {
+  width: 18.25rem !important;
+  transform: scale(1.2);
+  z-index: 9999;
+}
+.row-poster img {
+  border-radius: 3px !important;
+  transition: transform 0.4s ease-in-out;
+  z-index: 9999;
+}
+/* .row-poster img:hover {
+  transform: scale(1.3);
+} */
+
+.slider-arrow-container button {
+  width: 2rem;
+  height: 2rem;
+  background: rgba(231, 13, 13, 0.815);
+  cursor: pointer;
+  color: var(--primary-color);
+  border: none;
+  position: absolute;
+  top: 40%;
+  right: -1rem;
+}
+.slider-arrow-container .btn-prev {
+  left: -1rem;
+}
+
+
