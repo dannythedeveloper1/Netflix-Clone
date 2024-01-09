@@ -4,7 +4,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: rgb(148, 132, 132);
+    /* background-color: rgb(148, 132, 132); */
+    background-color:  rgb(20, 20, 20);
+    /* opacity: 0.1; */
+    background-color: transparent;
     height: 10vh;
     color: white;
     transition:all 0.5s;
@@ -27,6 +30,7 @@
     display: flex;
     justify-content: space-between;
     list-style: none;
+    cursor: pointer;
     /* background-color: lightblue; */
 }
 .header_right ul{
@@ -34,5 +38,6 @@
     display: flex;
     justify-content: space-around;
     list-style: none;
+    cursor: pointer;
     /* background-color: lightgreen; */
 }
