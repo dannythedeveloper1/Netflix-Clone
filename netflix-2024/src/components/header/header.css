@@ -6,14 +6,12 @@
     align-items: center;
     /* background-color: rgb(148, 132, 132); */
     background-color:  rgb(20, 20, 20);
-    /* opacity: 0.1; */
     background-color: transparent;
     height: 10vh;
     color: white;
     transition:all 0.5s;
     transition-timing-function: ease-in;
     z-index: 1;
-    /* font-family: Netflix Sans,Helvetica Neue,Segoe UI,Roboto,Ubuntu,sans-serif; */
     /* background-color: red; */
 }
 .nav__black{
@@ -29,6 +27,7 @@
     width: 140%;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     list-style: none;
     cursor: pointer;
     /* background-color: lightblue; */
