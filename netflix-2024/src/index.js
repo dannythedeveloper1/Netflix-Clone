@@ -1,5 +1,10 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+// react-slick css and slick-them css
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
+// react bootstrap css
+import "bootstrap/dist/css/bootstrap.min.css";
 import './index.css';
 import App from './App';
 
