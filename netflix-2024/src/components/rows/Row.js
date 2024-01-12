@@ -1,6 +1,7 @@
 import React from 'react'
 import RowCard from './RowCard/RowCard'
 import requests from '../../utils/requests';
+import RowList from './RowLists/RowList';
 
 const Row = () => {
 
@@ -11,6 +12,7 @@ const Row = () => {
         title="NETFLIX ORIGINALS"
         reqUrl={requests.fetchNetflixOriginals}
       />
+      {/* 
       <RowCard title="Trending Now" reqUrl={requests.fetchTrending} />
       <RowCard title="Top Rated Movies" reqUrl={requests.fetchTopRatedMovies} />
       <RowCard title="Romance Movies" reqUrl={requests.fetchRomanceMovies} />
@@ -20,7 +22,13 @@ const Row = () => {
       <RowCard
         title="Documentary Movies"
         reqUrl={requests.fetchDocumentaryMovies}
-      />
+      /> */}
+      {/* <RowList
+        title="NETFLIX ORIGINALS"
+        reqUrl={requests.fetchNetflixOriginals}
+      /> */}
+      {/* <RowList title="Trending Now" reqUrl={requests.fetchTrending} /> */}
+      {/* <RowList title="Trending Now" reqUrl={requests.fetchTrending} /> */}
     </>
   );
 }

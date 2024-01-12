@@ -1,5 +1,5 @@
-import React, { useEffect, useRef, useState } from 'react'
-import "./RowCard.css"
+import React, { useEffect, useRef, useState } from "react";
+import "./RowCard.css";
 import Slider from "react-slick";
 import axios from "../../../utils/axios";
 import YouTube from "react-youtube";
@@ -12,12 +12,14 @@ import KeyboardArrowRightIcon from "@mui/icons-material/KeyboardArrowRight";
 import KeyboardArrowLeftIcon from "@mui/icons-material/KeyboardArrowLeft";
 // tmdb image path baseUrl
 const base_url = "https://image.tmdb.org/t/p/original/";
-const RowCard = ({title, reqUrl}) => {
+const RowCard = ({ title, reqUrl }) => {
   const [movies, setMovies] = useState([]);
+  const [isMoved, setIsMoved] = useState(false);
   const [trailerUrl, setTrailerUrl] = useState("");
-    const [hoveredCardId, setHoveredCardId] = useState(null);
+  const [hoveredCardId, setHoveredCardId] = useState(null);
   // userref to select element
-  const arrowRef=useRef(null)
+  const arrowRef = useRef(null);
+  console.log(arrowRef)
   // fetch  data from tmdb
   useEffect(() => {
     try {
@@ -32,43 +34,56 @@ const RowCard = ({title, reqUrl}) => {
       console.log(`error found:${error}`);
     }
   }, [reqUrl]);
-  
+  console.log(movies.at(0));
+
   // handler function to add next and previous btn functionality
-  const prevBtnHandler=()=>{
+  const prevBtnHandler = () => {
+    const currentSlideIndex = arrowRef.current.innerSlider.state.currentSlide;
+    if (currentSlideIndex === 0) {
+      // If the current slide is the first one, set isMoved to false
+      setIsMoved(false);
+    }
     arrowRef.current.slickPrev();
     setHoveredCardId(false);
-  }
-  const nextBtnHandler=()=>{
-     arrowRef.current.slickNext();
-     setHoveredCardId(false);
-
-  }
+  };
+  // const prevBtnHandler = () => {
+  //   if (movies.length<6) {
+  //     setIsMoved(false);
+  //   }
+  //   arrowRef.current.slickPrev();
+  //   setHoveredCardId(false);
+  // };
+  const nextBtnHandler = () => {
+    setIsMoved(true);
+    arrowRef.current.slickNext();
+    setHoveredCardId(false);
+  };
   // hndle hover effect
-   const handleCardHover = (id) => {
-     setHoveredCardId(id);
-   };
+  const handleCardHover = (id) => {
+    setHoveredCardId(id);
+  };
 
   // console.log(movies);
-   const opts = {
-     height: "390",
-     width: "100%",
-     playerVars: {
-       autoplay: 1,
-     },
-   };
-// get movie trailers
+  const opts = {
+    height: "390",
+    width: "100%",
+    playerVars: {
+      autoplay: 1,
+    },
+  };
+  // get movie trailers
   const handleClick = (movie) => {
-  if (trailerUrl) {
-    setTrailerUrl("");
-  } else {
-    movieTrailer(movie?.title || "")
-      .then((url) => {
-        const urlParams = new URLSearchParams(new URL(url).search);
-        setTrailerUrl(urlParams.get("v"));
-      })
-      .catch((error) => console.log(error));
-  }
-};
+    if (trailerUrl) {
+      setTrailerUrl("");
+    } else {
+      movieTrailer(movie?.title || "")
+        .then((url) => {
+          const urlParams = new URLSearchParams(new URL(url).search);
+          setTrailerUrl(urlParams.get("v"));
+        })
+        .catch((error) => console.log(error));
+    }
+  };
 
   // react-slick setting
   var settings = {
@@ -86,7 +101,7 @@ const RowCard = ({title, reqUrl}) => {
         settings: {
           slidesToShow: 3,
           slidesToScroll: 3,
-          infinite: true,
+          infinite: false,
           dots: false,
           arrows: false,
         },
@@ -97,6 +112,8 @@ const RowCard = ({title, reqUrl}) => {
           slidesToShow: 2,
           slidesToScroll: 2,
           initialSlide: 2,
+          infinite: false,
+          dots: false,
           dots: false,
           arrows: false,
         },
@@ -106,6 +123,8 @@ const RowCard = ({title, reqUrl}) => {
         settings: {
           slidesToShow: 1,
           slidesToScroll: 1,
+          infinite: false,
+          dots: false,
           dots: false,
           arrows: false,
         },
@@ -138,18 +157,22 @@ const RowCard = ({title, reqUrl}) => {
                 </Card.Text>
                 <Button variant="primary">Go somewhere</Button>
               </Card.Body> */}
-              {hoveredCardId === singleMovie.id && (
+              {/* {hoveredCardId === singleMovie.id && (
                 <Card.Body>
                   <Card.Title>abebe</Card.Title>
 
                   <Card.Text>text here</Card.Text>
                 </Card.Body>
-              )}
+              )} */}
             </Card>
           ))}
         </Slider>
         <div className="slider-arrow-container">
-          <button onClick={prevBtnHandler} className="btn-prev">
+          <button
+            onClick={prevBtnHandler}
+            className="btn-prev"
+            style={{ display: !isMoved && "none" }}
+          >
             <KeyboardArrowLeftIcon />
           </button>
           <button onClick={nextBtnHandler} className="btn-nxt">
@@ -162,6 +185,6 @@ const RowCard = ({title, reqUrl}) => {
       </div> */}
     </div>
   );
-}
+};
 
 export default RowCard;

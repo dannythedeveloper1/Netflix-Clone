@@ -14,5 +14,7 @@
 }
 body {
   background: #000;
-  position: relative;
+   overflow: hidden;
+   scroll-behavior: smooth;
 }
+

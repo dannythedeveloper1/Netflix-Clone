@@ -17,11 +17,11 @@
   height: auto !important;
   transition: transform 0.4s ease-in-out;
 }
-.row-poster .card:hover {
+/* .row-poster .card:hover {
   width: 18.25rem !important;
   transform: scale(1.2);
   z-index: 9999;
-}
+} */
 .row-poster img {
   border-radius: 3px !important;
   transition: transform 0.4s ease-in-out;
@@ -33,17 +33,27 @@
 
 .slider-arrow-container button {
   width: 2rem;
-  height: 2rem;
-  background: rgba(231, 13, 13, 0.815);
+  height: 96%;
+  background: rgba(209, 206, 206, 0.3);
   cursor: pointer;
   color: var(--primary-color);
   border: none;
   position: absolute;
-  top: 40%;
-  right: -1rem;
+  top: 0;
+  /* top: 40%; */
+  right: -1.3rem;
 }
+
 .slider-arrow-container .btn-prev {
-  left: -1rem;
+  left: -2rem;
+}
+.slider-arrow-container button svg {
+  height: 3rem !important;
+  width: 2rem !important;
+  display: none;
+}
+.slider-arrow-container button:hover svg {
+  display: block;
 }
 
 
